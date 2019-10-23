@@ -1,4 +1,4 @@
-#N canvas -8 -8 1600 817 10;
+#N canvas -8 -8 1366 685 10;
 #X obj 53 37 r fromGUI;
 #X obj 53 56 list trim;
 #X obj 53 75 route /pad1vol /pad1sen /pad1but /pad2vol /pad2sen /pad2but
@@ -324,50 +324,45 @@ ON | 0 = OFF | X -> pad number, f 64;
 -1 -1;
 #X obj 1272 587 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 984 361 loadbang;
 #X obj 81 376 i;
 #X obj 111 376 + 1;
 #X floatatom 81 397 5 0 0 0 - - -;
 #X obj 81 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 1005 94 routeOSC /p1tgr /p2tgr /p3tgr /p4tgr /p5tgr /p6tgr /p7tgr
-/p8tgr, f 65;
-#X obj 987 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 1052 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1102 132 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1149 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1198 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1246 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1295 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1343 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1052 134 s p2tgr;
+#X obj 1102 113 s p3tgr;
+#X obj 1149 133 s p4tgr;
+#X obj 1198 110 s p5tgr;
+#X obj 1246 130 s p6tgr;
+#X obj 1295 110 s p7tgr;
+#X obj 1343 130 s p8tgr;
+#X text 1150 33 Receiving OSC messages;
+#X obj 1005 114 s p1tgr;
+#X obj 984 361 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 984 336 loadbang;
+#X obj 987 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 1005 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1005 24 receive fromNetwork;
+#X obj 1005 47 list trim;
+#X obj 1005 73 route /p1tgr/1 /p2tgr/1 /p3tgr/1 /p4tgr/1 /p5tgr/1 /p6tgr/1
+/p7tgr/1 /p8tgr/1, f 65;
+#X obj 1005 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1005 47 unpackOSC;
-#X obj 1005 94 routeOSC /p1tgr /p2tgr /p3tgr /p4tgr /p5tgr /p6tgr /p7tgr
-/p8tgr, f 65;
-#X obj 987 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 1005 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1052 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1102 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1149 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1198 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1246 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1295 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1343 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1052 154 s p2tgr;
-#X obj 1102 133 s p3tgr;
-#X obj 1149 153 s p4tgr;
-#X obj 1198 130 s p5tgr;
-#X obj 1246 150 s p6tgr;
-#X obj 1295 130 s p7tgr;
-#X obj 1343 150 s p8tgr;
-#X text 1137 53 Receiving OSC messages;
-#X obj 1005 26 udpreceive 9009;
-#X obj 1005 26 udpreceive 9009;
-#X obj 1005 134 s p1tgr;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 51 0;
@@ -642,34 +637,35 @@ ON | 0 = OFF | X -> pad number, f 64;
 #X connect 289 0 285 1;
 #X connect 290 0 286 1;
 #X connect 291 0 287 1;
-#X connect 301 0 233 0;
-#X connect 301 0 222 0;
-#X connect 301 0 234 0;
-#X connect 301 0 235 0;
-#X connect 301 0 236 0;
-#X connect 301 0 237 0;
-#X connect 301 0 238 0;
-#X connect 301 0 239 0;
-#X connect 302 0 303 0;
-#X connect 302 0 304 0;
-#X connect 303 0 302 1;
-#X connect 305 0 302 0;
-#X connect 306 0 330 0;
-#X connect 306 0 308 0;
-#X connect 306 1 320 0;
-#X connect 306 1 313 0;
-#X connect 306 2 321 0;
-#X connect 306 2 314 0;
-#X connect 306 3 322 0;
-#X connect 306 3 315 0;
-#X connect 306 4 323 0;
-#X connect 306 4 316 0;
-#X connect 306 5 324 0;
-#X connect 306 5 317 0;
-#X connect 306 6 325 0;
-#X connect 306 6 318 0;
-#X connect 306 7 326 0;
-#X connect 306 7 319 0;
-#X connect 309 0 311 0;
-#X connect 309 0 306 0;
-#X connect 328 0 309 0;
+#X connect 301 0 302 0;
+#X connect 301 0 303 0;
+#X connect 302 0 301 1;
+#X connect 304 0 301 0;
+#X connect 321 0 233 0;
+#X connect 321 0 222 0;
+#X connect 321 0 234 0;
+#X connect 321 0 235 0;
+#X connect 321 0 236 0;
+#X connect 321 0 237 0;
+#X connect 321 0 238 0;
+#X connect 321 0 239 0;
+#X connect 322 0 321 0;
+#X connect 324 0 323 0;
+#X connect 324 0 325 0;
+#X connect 325 0 326 0;
+#X connect 326 0 320 0;
+#X connect 326 0 327 0;
+#X connect 326 1 312 0;
+#X connect 326 1 305 0;
+#X connect 326 2 313 0;
+#X connect 326 2 306 0;
+#X connect 326 3 314 0;
+#X connect 326 3 307 0;
+#X connect 326 4 315 0;
+#X connect 326 4 308 0;
+#X connect 326 5 316 0;
+#X connect 326 5 309 0;
+#X connect 326 6 317 0;
+#X connect 326 6 310 0;
+#X connect 326 7 318 0;
+#X connect 326 7 311 0;
